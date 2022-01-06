@@ -1,0 +1,8 @@
+0.6.5
+pypi(pyroute2.core)
+pypi(pyroute2.ethtool)
+pypi(pyroute2.ipdb)
+pypi(pyroute2.ipset)
+pypi(pyroute2.ndb)
+pypi(pyroute2.nftables)
+pypi(pyroute2.nslink)
