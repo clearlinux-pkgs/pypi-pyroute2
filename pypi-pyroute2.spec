@@ -4,7 +4,7 @@
 #
 Name     : pypi-pyroute2
 Version  : 0.7.2
-Release  : 71
+Release  : 72
 URL      : https://files.pythonhosted.org/packages/ef/72/ab484832026aa98d030897cff852707f95e20e0bc8fd47bb8f203e7a8bcf/pyroute2-0.7.2.tar.gz
 Source0  : https://files.pythonhosted.org/packages/ef/72/ab484832026aa98d030897cff852707f95e20e0bc8fd47bb8f203e7a8bcf/pyroute2-0.7.2.tar.gz
 Summary  : Python Netlink library
@@ -74,7 +74,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1659049904
+export SOURCE_DATE_EPOCH=1659051679
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -113,6 +113,9 @@ export FCFLAGS="$FCFLAGS -m64 -march=x86-64-v3 "
 export LDFLAGS="$LDFLAGS -m64 -march=x86-64-v3 "
 pip install --root=%{buildroot}-v3 --no-deps --ignore-installed dist/*.whl
 popd
+## Remove excluded files
+rm -f %{buildroot}*/usr/bin/ss2
+rm -f %{buildroot}*/usr/bin/pyroute2-cli
 ## install_append content
 rm -rf %{buildroot}/usr/lib/python3*/site-packages/tests
 ## install_append end
@@ -123,10 +126,8 @@ rm -rf %{buildroot}/usr/lib/python3*/site-packages/tests
 
 %files bin
 %defattr(-,root,root,-)
-/usr/bin/pyroute2-cli
 /usr/bin/pyroute2-dhcp-client
 /usr/bin/pyroute2-test-platform
-/usr/bin/ss2
 
 %files license
 %defattr(0644,root,root,0755)
