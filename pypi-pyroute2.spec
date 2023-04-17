@@ -4,10 +4,10 @@
 # Using build pattern: pyproject
 #
 Name     : pypi-pyroute2
-Version  : 0.7.6
-Release  : 82
-URL      : https://files.pythonhosted.org/packages/e2/11/786ce925af2df81d56400ae2b5de9de91a55ab843a1dab232291e3d3f1f7/pyroute2-0.7.6.tar.gz
-Source0  : https://files.pythonhosted.org/packages/e2/11/786ce925af2df81d56400ae2b5de9de91a55ab843a1dab232291e3d3f1f7/pyroute2-0.7.6.tar.gz
+Version  : 0.7.7
+Release  : 83
+URL      : https://files.pythonhosted.org/packages/84/28/61b97e706254219bf8b1bf0cf9969e83d4c4b17a01e06d8e4b90d2e02287/pyroute2-0.7.7.tar.gz
+Source0  : https://files.pythonhosted.org/packages/84/28/61b97e706254219bf8b1bf0cf9969e83d4c4b17a01e06d8e4b90d2e02287/pyroute2-0.7.7.tar.gz
 Summary  : Python Netlink library
 Group    : Development/Tools
 License  : Apache-2.0 GPL-2.0 GPL-2.0+
@@ -16,8 +16,6 @@ Requires: pypi-pyroute2-license = %{version}-%{release}
 Requires: pypi-pyroute2-python = %{version}-%{release}
 Requires: pypi-pyroute2-python3 = %{version}-%{release}
 BuildRequires : buildreq-distutils3
-BuildRequires : pypi(setuptools)
-BuildRequires : pypi(wheel)
 # Suppress stripping binaries
 %define __strip /bin/true
 %define debug_package %{nil}
@@ -67,10 +65,10 @@ python3 components for the pypi-pyroute2 package.
 
 
 %prep
-%setup -q -n pyroute2-0.7.6
-cd %{_builddir}/pyroute2-0.7.6
+%setup -q -n pyroute2-0.7.7
+cd %{_builddir}/pyroute2-0.7.7
 pushd ..
-cp -a pyroute2-0.7.6 buildavx2
+cp -a pyroute2-0.7.7 buildavx2
 popd
 
 %build
@@ -78,7 +76,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1679327382
+export SOURCE_DATE_EPOCH=1681748683
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
