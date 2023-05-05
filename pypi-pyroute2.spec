@@ -4,10 +4,10 @@
 # Using build pattern: pyproject
 #
 Name     : pypi-pyroute2
-Version  : 0.7.7
-Release  : 83
-URL      : https://files.pythonhosted.org/packages/84/28/61b97e706254219bf8b1bf0cf9969e83d4c4b17a01e06d8e4b90d2e02287/pyroute2-0.7.7.tar.gz
-Source0  : https://files.pythonhosted.org/packages/84/28/61b97e706254219bf8b1bf0cf9969e83d4c4b17a01e06d8e4b90d2e02287/pyroute2-0.7.7.tar.gz
+Version  : 0.7.8
+Release  : 84
+URL      : https://files.pythonhosted.org/packages/bf/f2/7a96aa171eb3148e769f3c8250d0391cc625e7d47e831ed3da8c000b7ace/pyroute2-0.7.8.tar.gz
+Source0  : https://files.pythonhosted.org/packages/bf/f2/7a96aa171eb3148e769f3c8250d0391cc625e7d47e831ed3da8c000b7ace/pyroute2-0.7.8.tar.gz
 Summary  : Python Netlink library
 Group    : Development/Tools
 License  : Apache-2.0 GPL-2.0 GPL-2.0+
@@ -16,6 +16,8 @@ Requires: pypi-pyroute2-license = %{version}-%{release}
 Requires: pypi-pyroute2-python = %{version}-%{release}
 Requires: pypi-pyroute2-python3 = %{version}-%{release}
 BuildRequires : buildreq-distutils3
+BuildRequires : pypi(setuptools)
+BuildRequires : pypi(wheel)
 # Suppress stripping binaries
 %define __strip /bin/true
 %define debug_package %{nil}
@@ -65,10 +67,10 @@ python3 components for the pypi-pyroute2 package.
 
 
 %prep
-%setup -q -n pyroute2-0.7.7
-cd %{_builddir}/pyroute2-0.7.7
+%setup -q -n pyroute2-0.7.8
+cd %{_builddir}/pyroute2-0.7.8
 pushd ..
-cp -a pyroute2-0.7.7 buildavx2
+cp -a pyroute2-0.7.8 buildavx2
 popd
 
 %build
@@ -76,15 +78,15 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1681748683
+export SOURCE_DATE_EPOCH=1683300967
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
-export CFLAGS="$CFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz "
-export FCFLAGS="$FFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz "
-export FFLAGS="$FFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz "
-export CXXFLAGS="$CXXFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz "
+export CFLAGS="$CFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
+export FCFLAGS="$FFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
+export FFLAGS="$FFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
+export CXXFLAGS="$CXXFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
 export MAKEFLAGS=%{?_smp_mflags}
 python3 -m build --wheel --skip-dependency-check --no-isolation
 pushd ../buildavx2/
