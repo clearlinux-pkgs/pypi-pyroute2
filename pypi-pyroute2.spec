@@ -4,10 +4,10 @@
 # Using build pattern: pyproject
 #
 Name     : pypi-pyroute2
-Version  : 0.7.8
-Release  : 84
-URL      : https://files.pythonhosted.org/packages/bf/f2/7a96aa171eb3148e769f3c8250d0391cc625e7d47e831ed3da8c000b7ace/pyroute2-0.7.8.tar.gz
-Source0  : https://files.pythonhosted.org/packages/bf/f2/7a96aa171eb3148e769f3c8250d0391cc625e7d47e831ed3da8c000b7ace/pyroute2-0.7.8.tar.gz
+Version  : 0.7.9
+Release  : 85
+URL      : https://files.pythonhosted.org/packages/f9/f4/5aa161de059353367a3505a8647f475d11f5ce2af4d2375651a2166a1ef3/pyroute2-0.7.9.tar.gz
+Source0  : https://files.pythonhosted.org/packages/f9/f4/5aa161de059353367a3505a8647f475d11f5ce2af4d2375651a2166a1ef3/pyroute2-0.7.9.tar.gz
 Summary  : Python Netlink library
 Group    : Development/Tools
 License  : Apache-2.0 GPL-2.0 GPL-2.0+
@@ -67,10 +67,10 @@ python3 components for the pypi-pyroute2 package.
 
 
 %prep
-%setup -q -n pyroute2-0.7.8
-cd %{_builddir}/pyroute2-0.7.8
+%setup -q -n pyroute2-0.7.9
+cd %{_builddir}/pyroute2-0.7.9
 pushd ..
-cp -a pyroute2-0.7.8 buildavx2
+cp -a pyroute2-0.7.9 buildavx2
 popd
 
 %build
@@ -78,7 +78,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1683300967
+export SOURCE_DATE_EPOCH=1685637784
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
